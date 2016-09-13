@@ -1,6 +1,6 @@
 # Sonata Gentellela Theme
 
-A simple integration of [https://colorlib.com/polygon/gentelella/index.html](Gentellela Alela!) theme for [https://github.com/sonata-project/SonataAdminBundle](SonataAdminBundle).
+A simple integration of [Gentellela Alela!](https://colorlib.com/polygon/gentelella/index.html) theme for [SonataAdminBundle](https://github.com/sonata-project/SonataAdminBundle).
 
 This bundle automaticaly define a default configuration for sonata admin, so the installation is as simple as :
 
