@@ -1,0 +1,45 @@
+
+.navbar-nav .breadcrumb{
+    background-color: transparent;
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.dropdown-menu > li > a{
+    padding: 5px 20px;
+}
+
+.top_nav .navbar-right{
+    width: 30%;
+}
+
+.top_nav .dropdown-menu ul{
+    padding: 5px;
+    overflow: hidden;
+}
+
+.top_nav .dropdown-menu li{
+    padding: 0;
+}
+
+.top_nav .dropdown-menu li a{
+   line-height: 24px;
+   padding-left: 20px;
+}
+.top_nav .dropdown-menu li.dropdown-header{
+    border-bottom: 1px solid #f5f5f5;
+    padding: 5px;
+}
+
+.top_nav .dropdown-search{
+    padding: 10px 5px 0 10px;
+}
+
+.tab-menu-header{
+    padding: 0 15px;
+}
+
+.dropdown-menu a.sonata-toggle-filter i.fa{
+    margin-right: 1em;
+}

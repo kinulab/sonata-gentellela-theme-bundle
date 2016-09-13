@@ -1,0 +1,48 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    {% for group in groups %}
+        {% set display = (group.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
+        {% for role in group.roles if not display %}
+            {% set display = is_granted(role)%}
+        {% endfor %}
+
+        {% if display %}
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{ group.label|trans({}, group.label_catalogue) }}</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% for admin in group.items %}
+                        {% if admin.dashboardActions|length > 0 %}
+                            <article class="media event">
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <strong>{{ admin.label|trans({}, admin.translationdomain) }}</strong>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <div class="btn-group">
+                                        {% for action in admin.dashboardActions %}
+                                            {% include action.template|default('KinulabSonataGentellelaThemeBundle:CRUD:dashboard__action.html.twig') with {'action': action} %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </article>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

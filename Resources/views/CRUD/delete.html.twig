@@ -1,0 +1,48 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{%- block actions -%}
+    {% include 'KinulabSonataGentellelaThemeBundle:CRUD:action_buttons.html.twig' %}
+{%- endblock -%}
+
+{% block tab_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active', 'template': sonata_admin.adminPool.getTemplate('tab_menu_template')}, 'twig') }}{% endblock %}
+
+{% block content %}
+    <div class="sonata-ba-delete">
+
+        <div class="x_panel box-danger">
+            <div class="x_title">
+                <h3>{{ 'title_delete'|trans({}, 'SonataAdminBundle') }}</h3>
+            </div>
+            <div class="x_content">
+                <p>{{ 'message_delete_confirmation'|trans({'%object%': admin.toString(object)}, 'SonataAdminBundle') }}</p>
+
+                <div class="clearfix">
+                    <form method="POST" action="{{ admin.generateObjectUrl('delete', object) }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_sonata_csrf_token" value="{{ csrf_token }}">
+
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> {{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}</button>
+                        {% if admin.hasRoute('edit') and admin.isGranted('EDIT', object) %}
+                            {{ 'delete_or'|trans({}, 'SonataAdminBundle') }}
+
+                            <a class="btn btn-success" href="{{ admin.generateObjectUrl('edit', object) }}">
+                                <i class="fa fa-pencil"></i>
+                                {{ 'link_action_edit'|trans({}, 'SonataAdminBundle') }}</a>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
