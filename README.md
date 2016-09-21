@@ -10,13 +10,14 @@ composer require kinulab/sonata-getellela-theme-bundle
 
 and in the `app/AppKernel.php` :
 
-```
-    public function registerBundles()
-    {
-        $bundles = [
-            ...
-            new Kinulab\SonataGentellelaThemeBundle\KinulabSonataGentellelaThemeBundle(),
-        ];
+```php
+public function registerBundles()
+{
+    $bundles = [
+        ...
+        new Kinulab\SonataGentellelaThemeBundle\KinulabSonataGentellelaThemeBundle(),
+    ];
+}
 ```
 
 **Most of the templates blocks are unchanged, but for the theme, we have been forced to move somes of them. So if you've overrided the sonata themplates, there could be some glitchs**
