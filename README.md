@@ -5,7 +5,7 @@ A simple integration of [Gentellela Alela!](https://colorlib.com/polygon/gentele
 This bundle automaticaly define a default configuration for sonata admin, so the installation is as simple as :
 
 ```
-composer require kinulab/sonata-getellela-theme-bundle
+composer require kinulab/sonata-gentellela-theme-bundle
 ```
 
 and in the `app/AppKernel.php` :
