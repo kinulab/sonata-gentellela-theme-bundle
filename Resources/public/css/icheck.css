@@ -1,0 +1,58 @@
+/*
+iCheck plugin Flat skin, green
+
+As sonata define square blue classes and is not easily configurable
+this file use square-blue classes to define flat green.
+----------------------------------- */
+
+.icheckbox_square-blue,
+.iradio_square-blue {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../images/green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_square-blue {
+    background-position: 0 0;
+}
+    .icheckbox_square-blue.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_square-blue.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_square-blue.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_square-blue {
+    background-position: -88px 0;
+}
+    .iradio_square-blue.checked {
+        background-position: -110px 0;
+    }
+    .iradio_square-blue.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_square-blue.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    .icheckbox_square-blue,
+    .iradio_square-blue {
+        background-image: url(../images/green@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
