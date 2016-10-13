@@ -67,6 +67,7 @@ class KinulabSonataGentellelaThemeExtension extends Extension implements Prepend
                     'stylesheets'   => [
                         'bundles/kinulabsonatagentellelatheme/css/bootstrap.min.css',
                         'bundles/kinulabsonatagentellelatheme/css/font-awesome.min.css',
+                        'bundles/sonataadmin/vendor/iCheck/skins/square/blue.css',
                         'bundles/sonatacore/vendor/select2/select2.css',
                         'bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css',
                         'bundles/kinulabsonatagentellelatheme/css/prettify.min.css',

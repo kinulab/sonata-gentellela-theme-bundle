@@ -43,3 +43,8 @@
 .dropdown-menu a.sonata-toggle-filter i.fa{
     margin-right: 1em;
 }
+
+.icheckbox_square-blue, .iradio_square-blue{
+    position: relative;
+    left: -20px;
+}
