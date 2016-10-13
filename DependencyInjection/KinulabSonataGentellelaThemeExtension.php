@@ -75,7 +75,10 @@ class KinulabSonataGentellelaThemeExtension extends Extension implements Prepend
                         'bundles/kinulabsonatagentellelatheme/css/sonata-gentellela.css',
                     ],
                     'javascripts'   => [
-                        'bundles/kinulabsonatagentellelatheme/js/jquery.min.js',
+//                        'bundles/kinulabsonatagentellelatheme/js/jquery.min.js',
+                        /* JQuery has been moved in header. This is bad, but necessary until https://github.com/sonata-project/SonataAdminBundle/pull/3647 complete.
+                         * This will be cleaned up with the version 4.0 of sonata admin */
+
                         'bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js',
                         'bundles/kinulabsonatagentellelatheme/js/moment.min.js',
                         'bundles/kinulabsonatagentellelatheme/js/bootstrap.min.js',
