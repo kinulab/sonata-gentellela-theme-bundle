@@ -68,6 +68,7 @@ class KinulabSonataGentellelaThemeExtension extends Extension implements Prepend
                         'bundles/kinulabsonatagentellelatheme/css/bootstrap.min.css',
                         'bundles/kinulabsonatagentellelatheme/css/font-awesome.min.css',
                         'bundles/kinulabsonatagentellelatheme/css/icheck.css',
+                        'bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
                         'bundles/sonatacore/vendor/select2/select2.css',
                         'bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css',
                         'bundles/kinulabsonatagentellelatheme/css/prettify.min.css',
