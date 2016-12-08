@@ -1,3 +1,5 @@
+{# NEXT_MAJOR: remove this template #}
+
 {% macro render_groups(admin, object, elements, groups, has_tab, no_padding = false) %}
     <div class="row">
         {{ block('field_row') }}
@@ -13,7 +15,7 @@
                 <div class="x_title">
                     <h4>
                         {% block show_title %}
-                            {{ admin.trans(show_group.name, {}, show_group.translation_domain) }}
+                            {{ show_group.name|trans({}, show_group.translation_domain ?: admin.translationDomain) }}
                         {% endblock %}
                     </h4>
                 </div>

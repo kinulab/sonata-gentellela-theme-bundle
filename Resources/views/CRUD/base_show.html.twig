@@ -11,8 +11,6 @@ file that was distributed with this source code.
 
 {% extends base_template %}
 
-{% import 'KinulabSonataGentellelaThemeBundle:CRUD:base_show_macro.html.twig' as show_helper %}
-
 {%- block actions -%}
     {% include 'KinulabSonataGentellelaThemeBundle:CRUD:action_buttons.html.twig' %}
 {%- endblock -%}
@@ -38,7 +36,7 @@ file that was distributed with this source code.
                         <li{% if loop.first %} class="active"{% endif %}>
                             <a href="#tab_{{ admin.uniqid }}_{{ loop.index }}" data-toggle="tab">
                                 <i class="fa fa-exclamation-circle has-errors hide"></i>
-                                {{ admin.trans(name, {}, show_tab.translation_domain) }}
+                                {{ name|trans({}, show_tab.translation_domain ?: admin.translationDomain) }}
                             </a>
                         </li>
                     {% endfor %}
@@ -56,7 +54,8 @@ file that was distributed with this source code.
                                         <p>{{ show_tab.description|raw }}</p>
                                     {% endif %}
 
-                                    {{ show_helper.render_groups(admin, object, elements, show_tab.groups, has_tab) }}
+                                    {% set groups = show_tab.groups %}
+                                    {{ block('show_groups') }}
                                 </div>
                             </div>
                         </div>
@@ -64,7 +63,8 @@ file that was distributed with this source code.
                 </div>
             </div>
         {% elseif admin.showtabs is iterable %}
-            {{ show_helper.render_groups(admin, object, elements, admin.showtabs.default.groups, has_tab) }}
+            {% set groups = admin.showtabs.default.groups %}
+            {{ block('show_groups') }}
         {% endif %}
 
     </div>
@@ -72,3 +72,40 @@ file that was distributed with this source code.
     {{ sonata_block_render_event('sonata.admin.show.bottom', { 'admin': admin, 'object': object }) }}
 {% endblock %}
 
+{% block show_groups %}
+    <div class="row">
+        {% block field_row %}
+            {% for code in groups %}
+                {% set show_group = admin.showgroups[code] %}
+
+                <div class="{{ show_group.class|default('col-md-12') }} {{ no_padding|default(false) ? 'nopadding' }}">
+                    <div class="{{ show_group.box_class|replace({'box ': ''}) }} x_panel">
+                        <div class="x_title">
+                            <h4>
+                                {% block show_title %}
+                                    {{ admin.trans(show_group.name, {}, show_group.translation_domain) }}
+                                {% endblock %}
+                            </h4>
+                        </div>
+                        <div class="x_content table-responsive no-padding">
+                            <table class="table">
+                                <tbody>
+                                {% for field_name in show_group.fields %}
+                                    {% block show_field %}
+                                        <tr class="sonata-ba-view-container">
+                                            {% if elements[field_name] is defined %}
+                                                {{ elements[field_name]|render_view_element(object)}}
+                                            {% endif %}
+                                        </tr>
+                                    {% endblock %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock %}
+
+    </div>
+{% endblock %}

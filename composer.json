@@ -13,6 +13,11 @@
         "psr-4": { "Kinulab\\SonataGentellelaThemeBundle\\": "" }
     },
     "require": {
-        "sonata-project/admin-bundle": "^3.8"
+        "sonata-project/admin-bundle": "^3.10"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }

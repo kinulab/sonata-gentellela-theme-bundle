@@ -92,6 +92,11 @@ class KinulabSonataGentellelaThemeExtension extends Extension implements Prepend
                         'bundles/kinulabsonatagentellelatheme/js/custom.min.js',
                         'bundles/sonatacore/vendor/select2/select2.min.js',
                         'bundles/sonataadmin/vendor/iCheck/icheck.min.js',
+                        'bundles/sonataadmin/vendor/slimScroll/jquery.slimscroll.min.js',
+                        'bundles/sonataadmin/vendor/waypoints/lib/jquery.waypoints.min.js',
+                        'bundles/sonataadmin/vendor/waypoints/lib/shortcuts/sticky.min.js',
+                        'bundles/sonataadmin/vendor/readmore-js/readmore.min.js',
+
                         'bundles/sonataadmin/Admin.js',
                         'bundles/sonataadmin/treeview.js',
                     ]
