@@ -99,7 +99,7 @@ file that was distributed with this source code.
                             {% spaceless %}
                                 <a class="site_title" href="{{ path('sonata_admin_dashboard') }}">
                                 {% if 'single_image' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
-                                    <img src="{{ asset(sonata_admin.adminPool.titlelogo) }}" alt="{{ sonata_admin.adminPool.title }}">
+                                    <img src="{{ asset(sonata_admin.adminPool.titlelogo) }}" class="img-responsive" alt="{{ sonata_admin.adminPool.title }}">
                                 {% endif %}
                                 {% if 'single_text' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
                                     <span>{{ sonata_admin.adminPool.title }}</span>
@@ -121,7 +121,7 @@ file that was distributed with this source code.
                                     {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
                                 {% endblock side_bar_nav %}
                                 {% block side_bar_after_nav %}
-                                    <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
+                                    <p class="text-center small project-link" style="border-top: 1px solid #444444; padding-top: 10px">
                                         {% block side_bar_after_nav_content %}
                                             <a href="https://sonata-project.org" rel="noreferrer" target="_blank">sonata project</a>
                                             with <a href="https://colorlib.com/polygon/gentelella/" rel="noreferrer" target="_blank">Gentellela Alela!</a>

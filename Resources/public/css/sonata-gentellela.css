@@ -1,4 +1,11 @@
 
+.site_title img{
+    display: inline;
+    padding-bottom: 4px;
+    max-width: 40px;
+    margin-right: 5px;
+}
+
 .navbar-nav .breadcrumb{
     background-color: transparent;
     margin-bottom: 0;
@@ -58,4 +65,8 @@
 /* under modals */
 .nav-md .container.body .col-md-3.left_col{
     z-index:999;
+}
+
+.sonata-bc.nav-sm .project-link{
+    display: none;
 }
