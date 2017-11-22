@@ -170,7 +170,11 @@ file that was distributed with this source code.
             {{- widget|raw -}}
             {%- if label is not same as(false) -%}
                 <span class="control-label__text">
-                    {{- label|trans({}, translation_domain) -}}
+                    {% if translation_domain is same as(false) %}
+                        {{- label -}}
+                    {% else %}
+                        {{- label|trans({}, translation_domain) -}}
+                    {%- endif -%}
                 </span>
             {%- endif -%}
         </label>
@@ -183,7 +187,12 @@ file that was distributed with this source code.
     <ul {{ block('widget_container_attributes') }}>
     {% for child in form %}
         <li>
-            {{ form_widget(child, {'horizontal': false, 'horizontal_input_wrapper_class': ''}) }} {# {'horizontal': false, 'horizontal_input_wrapper_class': ''} needed to avoid MopaBootstrapBundle messing with the DOM #}
+-            {{ form_widget(child, {
+-                'horizontal': false,
+-                'horizontal_input_wrapper_class': '',
+-                'translation_domain': choice_translation_domain
+-            }) }} {# 'horizontal' values are needed to avoid MopaBootstrapBundle messing with the DOM #}
+
         </li>
     {% endfor %}
     </ul>
@@ -205,19 +214,23 @@ file that was distributed with this source code.
         <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %} >
             {% if empty_value is defined and empty_value is not none %}
                 <option value=""{% if required and value is empty %} selected="selected"{% endif %}>
-                    {% if not sonata_admin.admin %}
-                        {{- empty_value|trans({}, translation_domain) -}}
-                    {% else %}
-                        {{- empty_value|trans({}, sonata_admin.field_description.translationDomain) -}}
-                    {% endif%}
+                    {% if empty_value != '' %}
+                        {% if not sonata_admin.admin %}
+                            {{- empty_value|trans({}, translation_domain) -}}
+                        {% else %}
+                            {{- empty_value|trans({}, sonata_admin.field_description.translationDomain) -}}
+                        {% endif %}
+                    {% endif %}
                 </option>
             {% elseif placeholder is defined and placeholder is not none %}
                 <option value=""{% if required and value is empty %} selected="selected"{% endif %}>
-                    {% if not sonata_admin.admin %}
-                        {{- placeholder|trans({}, translation_domain) -}}
-                    {% else %}
-                        {{- placeholder|trans({}, sonata_admin.field_description.translationDomain) -}}
-                    {% endif%}
+                    {% if placeholder != '' %}
+                        {% if not sonata_admin.admin %}
+                            {{- placeholder|trans({}, translation_domain) -}}
+                        {% else %}
+                            {{- placeholder|trans({}, sonata_admin.field_description.translationDomain) -}}
+                        {% endif %}
+                    {% endif %}
                 </option>
             {% endif %}
             {% if preferred_choices|length > 0 %}
