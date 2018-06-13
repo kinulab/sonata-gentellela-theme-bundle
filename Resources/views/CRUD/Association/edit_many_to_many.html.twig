@@ -96,7 +96,7 @@ file that was distributed with this source code.
             {% endif %}
 
             {# include association code #}
-            {% include 'KinulabSonataGentellelaThemeBundle:CRUD/Association:edit_one_script.html.twig' %}
+            {% include '@KinulabSonataGentellelaTheme/CRUD/Association:edit_one_script.html.twig' %}
 
         {% else %}
             <div id="field_container_{{ id }}" class="field-container">
@@ -118,10 +118,10 @@ file that was distributed with this source code.
                     {% endif %}
                 </span>
 
-                {% include 'KinulabSonataGentellelaThemeBundle:CRUD/Association:edit_modal.html.twig' %}
+                {% include '@KinulabSonataGentellelaTheme/CRUD/Association:edit_modal.html.twig' %}
             </div>
 
-            {% include 'KinulabSonataGentellelaThemeBundle:CRUD/Association:edit_many_script.html.twig' %}
+            {% include '@KinulabSonataGentellelaTheme/CRUD/Association:edit_many_script.html.twig' %}
         {% endif %}
     </div>
 {% endif %}

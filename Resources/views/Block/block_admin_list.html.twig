@@ -34,7 +34,7 @@ file that was distributed with this source code.
                                 <div class="col-md-4 col-sm-4 col-xs-4">
                                     <div class="btn-group">
                                         {% for action in admin.dashboardActions %}
-                                            {% include action.template|default('KinulabSonataGentellelaThemeBundle:CRUD:dashboard__action.html.twig') with {'action': action} %}
+                                            {% include action.template|default('@KinulabSonataGentellelaTheme/CRUD/dashboard__action.html.twig') with {'action': action} %}
                                         {% endfor %}
                                     </div>
                                 </div>

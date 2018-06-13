@@ -87,7 +87,14 @@ file that was distributed with this source code.
         {% endblock %}
         </title>
     </head>
-    <body {% block body_attributes %}class="sonata-bc nav-md"{% endblock %}>
+    <body
+            {% block body_attributes -%}
+                class="sonata-bc nav-md
+                {% if app.request.cookies.get('sonata_sidebar_hide') -%}
+                    sidebar-collapse
+                {%- endif -%}"
+            {%- endblock -%}
+    >
         <div class="container body">
             <div class="main_container">
                 {% block sonata_header %}
@@ -317,7 +324,7 @@ file that was distributed with this source code.
                         {% block sonata_admin_content %}
 
                             {% block notice %}
-                                {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
+                                {% include '@SonataCore/FlashMessage/render.html.twig' %}
                             {% endblock notice %}
 
                             {% if _preview is not empty %}

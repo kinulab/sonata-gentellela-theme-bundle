@@ -8,10 +8,10 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 
 #}
-{% import 'KinulabSonataGentellelaThemeBundle:CRUD:base_array_macro.html.twig' as show %}
+{% import '@KinulabSonataGentellelaTheme/CRUD/base_array_macro.html.twig' as show %}
 
-{% extends 'KinulabSonataGentellelaThemeBundle:CRUD:base_show_field.html.twig' %}
+{% extends '@KinulabSonataGentellelaTheme/CRUD/base_show_field.html.twig' %}
 
-{% block field%}
+{% block field %}
     {{ show.render_array(value, field_description.options.inline|default(false)) }}
 {% endblock %}
